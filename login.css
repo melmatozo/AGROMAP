@@ -1,0 +1,481 @@
+
+:root {
+  --verde-escuro: #234b32;
+  --verde: #397348;
+  --verde-claro: #76a65a;
+  --creme: #fbf9f2;
+  --dourado: #e8ad38;
+  --texto: #26352a;
+  --texto-suave: #647168;
+  --borda: #dfe6dc;
+  --branco: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.auth-page {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--texto);
+  background: var(--creme);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 1.0625rem;
+}
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
+  min-height: 100vh;
+}
+
+.auth-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: clamp(28px, 5vw, 64px);
+  color: white;
+  overflow: hidden;
+  background-color: var(--verde-escuro);
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.auth-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    145deg,
+    rgba(24, 65, 42, 0.78),
+    rgba(27, 87, 51, 0.48) 55%,
+    rgba(20, 45, 31, 0.78)
+  );
+}
+
+.login-page .auth-visual {
+  background-image: url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85");
+}
+
+.cadastro-page .auth-visual {
+  background-image: url("https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1600&q=85");
+}
+
+.auth-brand,
+.mobile-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  color: inherit;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 1.875rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.auth-brand span:last-child,
+.mobile-brand span:last-child {
+  color: var(--verde-claro);
+}
+
+.auth-brand {
+  color: white;
+}
+
+.auth-brand span:last-child {
+  color: #b7dc93;
+}
+
+.visual-content {
+  width: 100%;
+  max-width: 660px;
+  margin: 50px 0;
+}
+
+.auth-eyebrow {
+  display: inline-block;
+  color: var(--verde);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  line-height: 1.6;
+}
+
+.auth-visual .auth-eyebrow {
+  color: #e1f1cf;
+}
+
+.visual-content h1 {
+  margin: 20px 0;
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: clamp(2.125rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+}
+
+.visual-content p {
+  max-width: 550px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.1875rem;
+  line-height: 1.8;
+}
+
+.visual-caption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+}
+
+.visual-caption > span {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 1.5625rem;
+}
+
+.visual-caption strong,
+.visual-caption small {
+  display: block;
+}
+
+.visual-caption strong {
+  font-size: 1.0625rem;
+}
+
+.visual-caption small {
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.875rem;
+}
+
+.auth-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 42px clamp(26px, 5vw, 76px) 22px;
+  background: var(--creme);
+}
+
+.auth-form-wrap {
+  width: 100%;
+  max-width: 510px;
+  margin: 0 auto;
+}
+
+.mobile-brand {
+  display: none;
+  margin-bottom: 35px;
+  color: var(--verde-escuro);
+}
+
+.form-heading {
+  margin-bottom: 28px;
+}
+
+.form-heading h2 {
+  margin: 12px 0;
+  color: var(--verde-escuro);
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: clamp(1.875rem, 3vw, 2.4375rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.form-heading p {
+  margin: 0;
+  color: var(--texto-suave);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+#loginForm,
+#cadastroForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#loginForm label,
+#cadastroForm label {
+  margin: 17px 0 8px;
+  color: #263d2d;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#loginForm input,
+#cadastroForm input,
+#cadastroForm select,
+#cadastroForm textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 54px;
+  padding: 14px 15px;
+  border: 1px solid #d7dfd4;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+  color: var(--texto);
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#cadastroForm textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+#loginForm input::placeholder,
+#cadastroForm input::placeholder,
+#cadastroForm textarea::placeholder {
+  color: #89948b;
+  opacity: 1;
+}
+
+#loginForm input:focus,
+#cadastroForm input:focus,
+#cadastroForm select:focus,
+#cadastroForm textarea:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(57, 115, 72, 0.13);
+}
+
+.forgot-password {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.forgot-password button {
+  padding: 5px 0;
+  border: 0;
+  background: none;
+  color: var(--verde);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.auth-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  margin-top: 22px;
+  padding: 15px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--verde-escuro);
+  color: white;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.auth-submit:hover {
+  background: var(--verde);
+  transform: translateY(-1px);
+}
+
+.auth-submit:disabled,
+.forgot-password button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+.form-message {
+  min-height: 0;
+  margin: 12px 0 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.form-message:empty {
+  display: none;
+}
+
+.form-message.error {
+  color: #a32626;
+}
+
+.form-message.success {
+  color: #246b3b;
+}
+
+.auth-switch {
+  margin-top: 25px;
+  color: var(--texto-suave);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.auth-switch a,
+.back-home {
+  color: var(--verde);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.auth-switch a:hover,
+.back-home:hover {
+  text-decoration: underline;
+}
+
+.back-home {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.9375rem;
+}
+
+.auth-footer {
+  padding-top: 35px;
+  color: #788278;
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.form-section-title {
+  margin: 28px 0 5px;
+  padding-top: 18px;
+  border-top: 1px solid var(--borda);
+  color: var(--verde-escuro);
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 1.3125rem;
+}
+
+.form-help {
+  margin: 6px 0 12px;
+  color: var(--texto-suave);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.cadastro-page .auth-panel {
+  justify-content: flex-start;
+}
+
+.cadastro-page .auth-form-wrap {
+  max-width: 540px;
+}
+
+.cadastro-page .auth-footer {
+  padding-top: 30px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .auth-layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(380px, 1fr);
+  }
+
+  .auth-visual {
+    padding: 30px;
+  }
+
+  .auth-panel {
+    padding: 32px 28px 20px;
+  }
+
+  .visual-content h1 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .auth-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .auth-visual {
+    min-height: 290px;
+    padding: 24px;
+  }
+
+  .auth-brand {
+    font-size: 1.5625rem;
+  }
+
+  .visual-content {
+    margin: 30px 0;
+  }
+
+  .visual-content h1 {
+    margin: 12px 0;
+    font-size: 1.875rem;
+    letter-spacing: -0.5px;
+  }
+
+  .visual-content p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .visual-caption {
+    padding-top: 0;
+  }
+
+  .visual-caption > span {
+    width: 42px;
+    height: 42px;
+  }
+
+  .auth-panel {
+    padding: 30px 22px 20px;
+  }
+
+  .mobile-brand {
+    display: inline-flex;
+    font-size: 1.625rem;
+  }
+
+  .form-heading h2 {
+    font-size: 1.9375rem;
+  }
+
+  .form-heading p {
+    font-size: 1rem;
+  }
+
+  .auth-footer {
+    padding-top: 28px;
+  }
+
+  .cadastro-page .auth-visual {
+    min-height: 260px;
+  }
+}

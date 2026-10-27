@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f2b">
+  <title>AgroMap | Painel do Produtor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="acessibilidade.css">
+  <link rel="stylesheet" href="tema-escuro.css">
+  <script src="tema.js"></script>
+  <script src="acessibilidade.js"></script>
+</head>
+<body>
+ 
+<aside class="sidebar" id="sidebar">
+  <img class="logo" src="agromap_logo_transparente.png" alt="AgroMap">
+  <nav>
+    <button class="menu active" data-section="inicio">Visão geral</button>
+    <button class="menu" data-section="localizacao">Localização</button>
+    <button class="menu" data-section="clima">Clima</button>
+    <button class="menu" data-section="previsoes">Previsão de safra</button>
+    <button class="menu" data-section="calendario">Calendário de plantio</button>
+    <button class="menu" data-section="perdas">Registro de perdas</button>
+    <button class="menu ia" data-section="ia">Assistente IA</button>
+  </nav>
+  <button id="logout" class="logout" type="button">Sair da conta</button>
+</aside>
+ 
+<main class="dashboard" id="app">
+  <header class="topbar">
+    <button class="burger" id="burger" aria-label="Abrir menu">☰</button>
+    <div>
+      <h1>Olá, <span id="nomeUsuario">produtor</span></h1>
+      <p id="saudacaoData"></p>
+    </div>
+    <div class="profile">
+      <strong id="propriedadeUsuario">Minha propriedade</strong>
+      <small id="emailUsuario"></small>
+    </div>
+  </header>
+ 
+  <div class="view on" id="inicio">
+  <section class="cards">
+    <article class="card"><span>Área total</span><strong id="areaTotal">—</strong></article>
+    <article class="card"><span>Área plantada</span><strong id="areaPlantada">—</strong>
+      <div class="bar"><i id="barraPlantada"></i></div><small id="pctPlantada"></small></article>
+    <article class="card"><span>Cultura principal</span><strong id="culturaPrincipal">—</strong></article>
+    <article class="card"><span>Cidade</span><strong id="localizacaoUsuario">—</strong><small id="estadoUsuario"></small></article>
+  </section>
+  <section class="tiles">
+    <button class="tile" data-go="clima" type="button"><span>Clima agora</span><strong id="tClima">—</strong><small>Ver previsão de 5 dias</small></button>
+    <button class="tile" data-go="perdas" type="button"><span>Perdas registradas</span><strong id="tPerdas">0 ha</strong><small>Registrar ocorrência</small></button>
+    <button class="tile" data-go="previsoes" type="button"><span>Última estimativa</span><strong id="tSim">—</strong><small>Simular safra</small></button>
+    <button class="tile ai" data-go="ia" type="button"><span>Assistente IA</span><strong>Agro IA</strong><small>Analisa sua propriedade</small></button>
+  </section>
+  </div>
+ 
+  <!-- MAPA -->
+  <section class="panel view" id="localizacao">
+    <div class="panel-head">
+      <div><h2>Localização da propriedade</h2>
+        <p>Clique no mapa ou arraste o marcador para indicar onde fica a sua propriedade.</p></div>
+      <div class="map-tools">
+        <div class="seg" id="tipoMapa">
+          <button data-tipo="satellite" class="on">Satélite</button>
+          <button data-tipo="roadmap">Mapa</button>
+        </div>
+        <button class="btn ghost" id="btnGps" type="button">Usar minha posição</button>
+        <button class="btn" id="btnSalvarLoc" type="button" disabled>Salvar localização</button>
+      </div>
+    </div>
+    <div class="map-box"><div id="mapa"></div></div>
+    <p class="map-info" id="infoMapa">Carregando mapa…</p>
+    <p class="property-details" id="detalhesPropriedade"></p>
+  </section>
+ 
+  <!-- CLIMA -->
+  <section class="panel view" id="clima">
+    <div class="panel-head"><div><h2>Clima no local</h2><p id="climaLocal">Baseado na localização da propriedade.</p></div></div>
+    <div class="weather" id="climaBox"><p class="empty">Buscando previsão…</p></div>
+    <button class="btn ghost" type="button" data-ask="Analise o clima atual e a previsão dos próximos dias e diga o que devo fazer ou evitar na lavoura.">Analisar com a IA</button>
+  </section>
+ 
+  <!-- SIMULADOR -->
+  <section class="panel view" id="previsoes">
+    <div class="panel-head"><div><h2>Simulador de safra</h2>
+      <p>Estimativa simples com médias de produtividade. Não substitui orientação técnica.</p></div></div>
+    <div class="sim">
+      <div class="sim-form">
+        <label for="selectCultura">Cultura</label>
+        <select id="selectCultura"><option>Soja</option><option>Milho</option><option>Feijão</option><option>Café</option></select>
+        <label for="inputArea">Área (ha)</label>
+        <input type="number" id="inputArea" min="1" placeholder="Ex.: 50">
+        <button class="btn" id="btnSimular" type="button">Calcular estimativa</button>
+      </div>
+      <div class="sim-result" id="resSim"><p class="empty">Escolha a cultura e a área para ver os três cenários.</p></div>
+    </div>
+    <button class="btn ghost" type="button" data-ask="Interprete minha última simulação de safra: os cenários são realistas? O que pode melhorar a produtividade?" style="margin-top:16px">Interpretar com a IA</button>
+    <div hidden>
+    </div>
+  </section>
+ 
+  <!-- CALENDÁRIO -->
+  <section class="panel view" id="calendario">
+    <div class="panel-head"><div><h2>Calendário de plantio</h2>
+      <p>Toque numa cultura para ver o período indicado no Centro-Sul (referência geral; consulte o ZARC da sua cidade).</p></div></div>
+    <div class="chips" id="chipsCultura"></div>
+    <div class="months" id="meses"></div>
+    <p class="map-info" id="descCalendario"></p>
+    <button class="btn ghost" data-go="previsoes" type="button">Simular esta cultura</button>
+  </section>
+ 
+  <!-- PERDAS -->
+  <section class="panel view" id="perdas">
+    <div class="panel-head"><div><h2>Registro de perdas</h2><p>As perdas descontam a área da simulação de safra e alimentam a IA.</p></div>
+      <button class="btn ghost" type="button" data-ask="Veja as perdas que registrei e me oriente sobre causas prováveis e como reduzir esse prejuízo na próxima safra.">Pedir orientação à IA</button></div>
+    <form class="loss-form" id="formPerda">
+      <div><label for="pCultura">Cultura</label><select id="pCultura"><option>Soja</option><option>Milho</option><option>Feijão</option><option>Café</option></select></div>
+      <div><label for="pCausa">Causa</label><select id="pCausa"><option>Seca</option><option>Excesso de chuva</option><option>Geada</option><option>Granizo</option><option>Praga</option><option>Doença</option><option>Outro</option></select></div>
+      <div><label for="pHa">Área afetada (ha)</label><input id="pHa" type="number" min="0.1" step="0.1" required></div>
+      <div><label for="pData">Data</label><input id="pData" type="date" required></div>
+      <button class="btn" type="submit">Registrar perda</button>
+    </form>
+    <p class="map-info" id="totalPerdas"></p>
+    <div id="listaPerdas"></div>
+  </section>
+ 
+  <section class="panel view" id="ia">
+    <div class="panel-head"><div><h2>Agro IA</h2><p>Assistente que conhece sua propriedade, o clima do local, as perdas e a última simulação.</p></div></div>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <div class="chips" id="sugs">
+      <button class="chip" type="button" data-ask="Faça um resumo da minha propriedade e aponte os 3 pontos que merecem mais atenção agora.">Resumo da propriedade</button>
+      <button class="chip" type="button" data-ask="Qual a melhor época para plantar minha cultura principal na minha região?">Melhor época de plantio</button>
+      <button class="chip" type="button" data-ask="Como posso reduzir riscos climáticos na minha lavoura?">Reduzir riscos do clima</button>
+    </div>
+    <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Pergunte algo sobre sua lavoura…" autocomplete="off" maxlength="500"><button class="btn" type="submit">Enviar</button></form>
+  </section>
+ 
+  <p id="mensagemErro" class="error-msg" role="status" aria-live="polite"></p>
+</main>
+ 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="dashboard.js"></script>
+</body>
+</html>
+ 

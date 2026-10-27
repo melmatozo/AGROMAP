@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#234b32">
+    <title>AgroMap | Cadastro do Produtor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cadastro.css">
+  <link rel="stylesheet" href="acessibilidade.css">
+  <link rel="stylesheet" href="tema-escuro.css">
+  <script src="tema.js"></script>
+  <script src="acessibilidade.js"></script>
+</head>
+<body>
+ 
+    <header class="header">
+        <div class="logo">🌱 Agro<span>Map</span></div>
+        <a href="login.html" class="back">Já tem uma conta? Entrar</a>
+    </header>
+ 
+    <div class="cadastro-layout">
+        
+        <!-- PAINEL VISUAL LATERAL -->
+        <div class="cadastro-visual">
+            <div class="visual-shade"></div>
+            <div class="visual-brand">🌱 Agro<span>Map</span></div>
+            <div class="visual-content">
+                <span class="eyebrow">GESTÃO AGRÍCOLA INTELIGENTE</span>
+                <h1>Mais informação. Melhores decisões.</h1>
+                <p>Monitore sua propriedade, controle o plantio e tome decisões baseadas em dados reais da sua lavoura.</p>
+            </div>
+        </div>
+ 
+        <!-- PAINEL DO FORMULÁRIO -->
+        <div class="cadastro-panel">
+            <div class="form-wrap">
+                
+                <div class="form-heading">
+                    <span class="eyebrow">CADASTRO GRATUITO</span>
+                    <h2>Crie sua conta no AgroMap</h2>
+                    <p>Preencha os dados abaixo para começar a gerenciar sua propriedade.</p>
+                </div>
+ 
+                <form id="cadastroForm">
+                    
+                    <div class="section-title">
+                        <span>1. Dados Pessoais</span>
+                    </div>
+ 
+                    <label for="nome">Nome completo <span>*</span></label>
+                    <input type="text" id="nome" required placeholder="Seu nome completo">
+ 
+                    <div class="two-columns">
+                        <div>
+                            <label for="email">E-mail <span>*</span></label>
+                            <input type="email" id="email" required placeholder="seu@email.com">
+                        </div>
+                        <div>
+                            <label for="telefone">Telefone / WhatsApp</label>
+                            <input type="text" id="telefone" placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+ 
+                    <div class="two-columns">
+                        <div>
+                            <label for="senha">Senha (mín. 6 caracteres) <span>*</span></label>
+                            <input type="password" id="senha" required placeholder="••••••••">
+                        </div>
+                        <div>
+                            <label for="confirmarSenha">Confirmar senha <span>*</span></label>
+                            <input type="password" id="confirmarSenha" required placeholder="••••••••">
+                        </div>
+                    </div>
+ 
+                    <div class="section-divider"></div>
+ 
+                    <div class="section-title">
+                        <span>2. Dados da Propriedade</span>
+                    </div>
+ 
+                    <label for="nomeFazenda">Nome da Propriedade / Fazenda</label>
+                    <input type="text" id="nomeFazenda" placeholder="Ex: Fazenda Boa Esperança">
+ 
+                    <label for="enderecoRural">Endereço / Estrada rural</label>
+                    <input type="text" id="enderecoRural" placeholder="Ex: Rodovia SP-270, Km 450">
+ 
+                    <div class="two-columns">
+                        <div>
+                            <label for="cidade">Cidade</label>
+                            <input type="text" id="cidade" placeholder="Sua cidade">
+                        </div>
+                        <div>
+                            <label for="estado">Estado (UF)</label>
+                            <input type="text" id="estado" maxlength="2" placeholder="Ex: SP">
+                        </div>
+                    </div>
+ 
+                    <div class="two-columns">
+                        <div>
+                            <label for="hectaresTotal">Área total (hectares)</label>
+                            <input type="text" id="hectaresTotal" placeholder="Ex: 150">
+                        </div>
+                        <div>
+                            <label for="hectaresPlantados">Área plantada (hectares)</label>
+                            <input type="text" id="hectaresPlantados" placeholder="Ex: 120">
+                        </div>
+                    </div>
+ 
+                    <div class="two-columns">
+                        <div>
+                            <label for="culturaPrincipal">Cultura principal</label>
+                            <input type="text" id="culturaPrincipal" placeholder="Ex: Soja, Milho...">
+                        </div>
+                        <div>
+                            <label for="epocaPlantio">Época de plantio</label>
+                            <input type="text" id="epocaPlantio" placeholder="Ex: Outubro / Novembro">
+                        </div>
+                    </div>
+ 
+                    <label for="observacoes">Observações adicionais</label>
+                    <textarea id="observacoes" placeholder="Informações relevantes sobre a propriedade..."></textarea>
+ 
+                    <button type="submit" id="botaoCadastro" class="submit-button">
+                        Criar minha conta <span>→</span>
+                    </button>
+ 
+                    <p id="mensagem" class="form-message" role="status" aria-live="polite"></p>
+ 
+                </form>
+ 
+                <p class="auth-switch">
+                    Já tem uma conta? <a href="login.html">Fazer login</a>
+                </p>
+ 
+            </div>
+        </div>
+ 
+    </div>
+ 
+    <script src="cadastro.js"></script>
+</body>
+</html>

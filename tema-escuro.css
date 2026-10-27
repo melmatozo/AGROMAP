@@ -1,0 +1,393 @@
+/* ==========================================
+   AGROMAP — TEMA ESCURO (verde escuro + amarelo)
+   Ativado pela classe "tema-escuro" no <html> (ver tema.js).
+   Vale para todas as páginas: index, login, cadastro e dashboard.
+========================================== */
+
+html.tema-escuro {
+  color-scheme: dark;
+
+  /* paleta do tema */
+  --t-bg: #0b1c12;          /* fundo da página */
+  --t-bg-2: #0f2418;        /* seções alternadas */
+  --t-surface: #143222;     /* cartões / painéis */
+  --t-surface-2: #1a3d2a;   /* campos / itens em destaque */
+  --t-border: #2b5039;
+  --t-text: #eaf3e4;
+  --t-muted: #a8bfab;
+  --t-yellow: #f5c542;
+  --t-yellow-hover: #ffd96a;
+  --t-on-yellow: #1c2a10;   /* texto sobre amarelo */
+  --t-green: #7cc48c;
+  --t-danger: #ff8a80;
+
+  /* variáveis já usadas pelas páginas */
+  --cream: var(--t-bg);
+  --white: var(--t-surface);
+  --text: var(--t-text);
+  --muted: var(--t-muted);
+  --border: var(--t-border);
+  --bg: var(--t-bg);
+  --shadow: 0 12px 32px rgba(0, 0, 0, .45);
+  --green-light: var(--t-yellow);
+  --gold: var(--t-yellow);
+}
+
+html.tema-escuro body {
+  background: var(--t-bg);
+  color: var(--t-text);
+}
+
+html.tema-escuro ::selection { background: var(--t-yellow); color: var(--t-on-yellow); }
+
+html.tema-escuro :focus-visible { outline-color: var(--t-yellow); }
+
+html.tema-escuro ::placeholder { color: #7f9886; }
+
+/* ==========================================
+   INDEX (style.css)
+========================================== */
+
+html.tema-escuro .site-header { background: rgba(8, 22, 14, .72); }
+
+html.tema-escuro .main-nav > a:hover,
+html.tema-escuro .login-link:hover { color: var(--t-yellow); }
+
+html.tema-escuro .brand-name span,
+html.tema-escuro .site-footer .brand-name span { color: var(--t-yellow); }
+
+html.tema-escuro .brand-symbol { color: var(--t-yellow); }
+
+/* botões */
+html.tema-escuro .header-button,
+html.tema-escuro .button-light,
+html.tema-escuro .hero .button-primary,
+html.tema-escuro .button-primary {
+  background: var(--t-yellow);
+  color: var(--t-on-yellow);
+}
+
+html.tema-escuro .header-button:hover,
+html.tema-escuro .button-light:hover,
+html.tema-escuro .hero .button-primary:hover,
+html.tema-escuro .button-primary:hover {
+  background: var(--t-yellow-hover);
+  color: var(--t-on-yellow);
+}
+
+html.tema-escuro .button-secondary { border-color: var(--t-yellow); color: var(--t-yellow); background: transparent; }
+html.tema-escuro .button-secondary:hover { background: rgba(245, 197, 66, .14); }
+
+/* hero / destaques em amarelo */
+html.tema-escuro .hero { background: #0b1c12; }
+html.tema-escuro .hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(6, 20, 12, .9), rgba(6, 20, 12, .55)),
+    linear-gradient(0deg, rgba(6, 20, 12, .6), transparent 70%);
+}
+html.tema-escuro .hero h1 span,
+html.tema-escuro .hero .section-kicker,
+html.tema-escuro .final-cta .section-kicker,
+html.tema-escuro .final-cta h2 span { color: var(--t-yellow); }
+
+html.tema-escuro .benefit-icon {
+  color: var(--t-yellow);
+  border-color: rgba(245, 197, 66, .4);
+  background: rgba(245, 197, 66, .12);
+}
+
+/* faixa e seções */
+html.tema-escuro .intro-strip { background: var(--t-bg-2); border-color: var(--t-border); }
+html.tema-escuro .intro-strip p { color: var(--t-muted); }
+html.tema-escuro .intro-strip strong { color: var(--t-yellow); }
+
+html.tema-escuro .features { background: var(--t-bg); color: var(--t-text); }
+html.tema-escuro .about-section { background: var(--t-bg-2); }
+
+html.tema-escuro .section-kicker,
+html.tema-escuro .feature-label,
+html.tema-escuro .about-content .section-kicker { color: var(--t-yellow); }
+
+html.tema-escuro .section-heading h2,
+html.tema-escuro .about-content h2 { color: var(--t-text); }
+
+html.tema-escuro .section-heading h2 span,
+html.tema-escuro .about-content h2 span { color: var(--t-yellow); }
+
+html.tema-escuro .section-intro,
+html.tema-escuro .features-note,
+html.tema-escuro .about-content > p,
+html.tema-escuro .feature-body > p,
+html.tema-escuro .feature-body details p { color: var(--t-muted); }
+
+html.tema-escuro .feature-card {
+  background: var(--t-surface);
+  border-color: var(--t-border);
+  color: var(--t-text);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+
+html.tema-escuro .feature-card:hover { border-color: var(--t-yellow); box-shadow: 0 15px 30px rgba(0, 0, 0, .5); }
+html.tema-escuro .feature-card > img { background: var(--t-surface-2); }
+html.tema-escuro .feature-body { background: var(--t-surface); }
+html.tema-escuro .feature-body h3 { color: var(--t-text); }
+html.tema-escuro .feature-points { color: var(--t-muted); }
+html.tema-escuro .feature-points li::marker { color: var(--t-yellow); }
+html.tema-escuro .feature-body details { border-top-color: var(--t-border); }
+html.tema-escuro .feature-body summary { color: var(--t-yellow); }
+
+html.tema-escuro .about-image { background: var(--t-surface-2); }
+html.tema-escuro .about-points li { color: var(--t-text); }
+html.tema-escuro .about-points li::first-letter { color: var(--t-yellow); }
+
+html.tema-escuro .final-cta {
+  background:
+    linear-gradient(rgba(6, 20, 12, .82), rgba(6, 20, 12, .88)),
+    #0f2a1a;
+  background-size: cover;
+}
+
+html.tema-escuro .site-footer { background: #07140c; }
+html.tema-escuro .footer-links a:hover { color: var(--t-yellow); }
+
+/* menu mobile */
+@media (max-width: 780px) {
+  html.tema-escuro .main-nav { background: var(--t-surface); box-shadow: 0 12px 20px rgba(0, 0, 0, .5); }
+  html.tema-escuro .main-nav > a { color: var(--t-text); border-bottom-color: var(--t-border); }
+  html.tema-escuro .mobile-login { border-color: var(--t-yellow); color: var(--t-yellow); }
+  html.tema-escuro .mobile-register { background: var(--t-yellow); color: var(--t-on-yellow); }
+}
+
+/* ==========================================
+   LOGIN (estilos dentro do login.html)
+========================================== */
+
+html.tema-escuro body { background: var(--t-bg); }
+
+html.tema-escuro .back { color: var(--t-yellow); }
+html.tema-escuro .brand span,
+html.tema-escuro .visual h1 span { color: var(--t-yellow); }
+html.tema-escuro .kicker { color: var(--t-yellow); }
+
+html.tema-escuro .form-kicker { color: var(--t-yellow); }
+html.tema-escuro .form-wrap h2 { color: var(--t-text); }
+html.tema-escuro .intro { color: var(--t-muted); }
+html.tema-escuro .mobile-brand { color: var(--t-text); }
+html.tema-escuro .mobile-brand span { color: var(--t-yellow); }
+
+html.tema-escuro label { color: var(--t-text); }
+
+html.tema-escuro input,
+html.tema-escuro select,
+html.tema-escuro textarea {
+  background: var(--t-surface-2);
+  color: var(--t-text);
+  border-color: var(--t-border);
+}
+
+html.tema-escuro input:focus,
+html.tema-escuro select:focus,
+html.tema-escuro textarea:focus {
+  border-color: var(--t-yellow);
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, .25);
+}
+
+/* autopreenchimento do navegador */
+html.tema-escuro input:-webkit-autofill {
+  -webkit-text-fill-color: var(--t-text);
+  box-shadow: 0 0 0 1000px var(--t-surface-2) inset;
+}
+
+html.tema-escuro .layout button[type="submit"],
+html.tema-escuro .auth-layout button[type="submit"] {
+  background: var(--t-yellow);
+  color: var(--t-on-yellow);
+}
+
+html.tema-escuro .layout button[type="submit"]:hover:not(:disabled) { background: var(--t-yellow-hover); }
+
+html.tema-escuro .switch { color: var(--t-muted); }
+html.tema-escuro .switch a { color: var(--t-yellow); }
+html.tema-escuro .secure { background: var(--t-surface); color: var(--t-muted); border: 1px solid var(--t-border); }
+
+html.tema-escuro #mensagem.ok { color: var(--t-green); }
+html.tema-escuro #mensagem.erro { color: var(--t-danger); }
+
+@media (max-width: 800px) {
+  html.tema-escuro .back { color: var(--t-yellow); }
+}
+
+/* ==========================================
+   CADASTRO (cadastro.css)
+========================================== */
+
+html.tema-escuro {
+  --green: var(--t-yellow);
+  --green-deep: #07140c;
+}
+
+html.tema-escuro .header {
+  background: rgba(9, 24, 15, .96);
+  border-bottom-color: var(--t-border);
+}
+
+html.tema-escuro .logo { color: var(--t-text); }
+html.tema-escuro .logo span,
+html.tema-escuro .mobile-brand span { color: var(--t-yellow); }
+
+html.tema-escuro .back,
+html.tema-escuro .back-home { color: var(--t-muted); }
+html.tema-escuro .back:hover,
+html.tema-escuro .back-home:hover { color: var(--t-yellow); }
+
+html.tema-escuro .cadastro-panel { background: var(--t-bg); }
+html.tema-escuro .visual-brand span { color: var(--t-yellow); }
+html.tema-escuro .cadastro-visual .eyebrow { color: var(--t-yellow); }
+html.tema-escuro .eyebrow { color: var(--t-yellow); }
+html.tema-escuro .caption-icon { color: var(--t-yellow); background: rgba(245, 197, 66, .14); }
+
+html.tema-escuro .form-heading h2 { color: var(--t-text); }
+html.tema-escuro .section-title { color: var(--t-text); }
+html.tema-escuro .section-title small { background: rgba(245, 197, 66, .15); color: var(--t-yellow); }
+html.tema-escuro label span { color: var(--t-danger); }
+
+html.tema-escuro .submit-button { background: var(--t-yellow); color: var(--t-on-yellow); }
+html.tema-escuro .submit-button:hover:not(:disabled) { background: var(--t-yellow-hover); }
+
+html.tema-escuro .form-message.error { color: var(--t-danger); }
+html.tema-escuro .form-message.success { color: var(--t-green); }
+
+html.tema-escuro .auth-switch a { color: var(--t-yellow); }
+html.tema-escuro .auth-footer { color: var(--t-muted); border-top-color: var(--t-border); }
+html.tema-escuro .mobile-brand { color: var(--t-text); }
+
+/* ==========================================
+   DASHBOARD (dashboard.css)
+========================================== */
+
+html.tema-escuro .sidebar { background: #07140c; border-right: 1px solid var(--t-border); }
+html.tema-escuro .logo[src] { background: #fff; }       /* logo PNG continua legível */
+
+html.tema-escuro .menu { color: #c4d8c8; }
+html.tema-escuro .menu:hover { background: rgba(245, 197, 66, .1); }
+html.tema-escuro .menu.active {
+  background: rgba(245, 197, 66, .16);
+  color: var(--t-yellow);
+  border-left-color: var(--t-yellow);
+}
+html.tema-escuro .menu.ia { border-color: rgba(245, 197, 66, .55); color: var(--t-yellow); }
+html.tema-escuro .logout { border-color: rgba(245, 197, 66, .45); color: var(--t-yellow); }
+html.tema-escuro .logout:hover { background: rgba(245, 197, 66, .12); }
+
+html.tema-escuro .topbar h1,
+html.tema-escuro .profile strong,
+html.tema-escuro .card strong,
+html.tema-escuro .panel h2,
+html.tema-escuro .w-now strong,
+html.tema-escuro .tile strong,
+html.tema-escuro .sim-form label,
+html.tema-escuro .loss-form label { color: var(--t-text); }
+
+html.tema-escuro .topbar h1 span { color: var(--t-yellow); }
+
+html.tema-escuro .burger { background: var(--t-yellow); color: var(--t-on-yellow); }
+
+html.tema-escuro .card,
+html.tema-escuro .panel,
+html.tema-escuro .tile { background: var(--t-surface); border-color: var(--t-border); }
+
+html.tema-escuro .tile:hover { border-color: var(--t-yellow); }
+html.tema-escuro .tile small { color: var(--t-yellow); }
+html.tema-escuro .tile.ai { background: #1d4a31; border-color: var(--t-yellow); }
+html.tema-escuro .tile.ai span,
+html.tema-escuro .tile.ai strong { color: var(--t-text); }
+html.tema-escuro .tile.ai small { color: var(--t-yellow); }
+
+html.tema-escuro .bar,
+html.tema-escuro .sc .track { background: #0b1c12; }
+html.tema-escuro .bar i { background: var(--t-yellow); }
+
+/* botões */
+html.tema-escuro .btn { background: var(--t-yellow); color: var(--t-on-yellow); }
+html.tema-escuro .btn:hover:not(:disabled) { background: var(--t-yellow-hover); }
+html.tema-escuro .btn.ghost { background: transparent; color: var(--t-yellow); border: 1px solid var(--t-yellow); }
+html.tema-escuro .btn.ghost:hover { background: rgba(245, 197, 66, .14) !important; }
+
+html.tema-escuro .seg { border-color: var(--t-border); }
+html.tema-escuro .seg button { background: var(--t-surface-2); color: var(--t-muted); }
+html.tema-escuro .seg button.on { background: var(--t-yellow); color: var(--t-on-yellow); }
+
+html.tema-escuro .map-box { background: var(--t-surface-2); border-color: var(--t-border); }
+
+/* clima */
+html.tema-escuro .w-day { background: var(--t-surface-2); border-color: var(--t-border); }
+html.tema-escuro .w-day small { color: #8cc4ff; }
+
+/* simulador */
+html.tema-escuro .sim-result,
+html.tema-escuro .chat { background: var(--t-bg-2); border-color: var(--t-border); }
+
+html.tema-escuro .f-o { background: var(--t-green); }
+html.tema-escuro .f-e { background: #3f9a5c; }
+html.tema-escuro .f-p { background: var(--t-yellow); }
+
+/* calendário */
+html.tema-escuro .chip { background: var(--t-surface-2); color: var(--t-text); border-color: var(--t-border); }
+html.tema-escuro .chip.on { background: var(--t-yellow); color: var(--t-on-yellow); border-color: var(--t-yellow); }
+html.tema-escuro .m { background: var(--t-surface-2); color: var(--t-muted); }
+html.tema-escuro .m.plant { background: var(--t-green); color: #08150d; }
+html.tema-escuro .m.harv { background: var(--t-yellow); color: var(--t-on-yellow); }
+
+/* perdas / chat */
+html.tema-escuro .loss span { color: #ffb066; }
+html.tema-escuro .msg.ia { background: var(--t-surface-2); border-color: var(--t-border); color: var(--t-text); }
+html.tema-escuro .msg.eu { background: var(--t-yellow); color: var(--t-on-yellow); }
+html.tema-escuro .msg.erro { background: #3a1d1d; color: var(--t-danger); border-color: #6b3434; }
+html.tema-escuro .error-msg { color: var(--t-danger); }
+
+html.tema-escuro .toast { background: var(--t-yellow); color: var(--t-on-yellow); }
+
+/* ==========================================
+   PAINEL DE ACESSIBILIDADE (acessibilidade.css)
+========================================== */
+
+html.tema-escuro .a11y-fab { background: var(--t-yellow); color: var(--t-on-yellow); border-color: var(--t-on-yellow); }
+html.tema-escuro .a11y-fab:hover { background: var(--t-yellow-hover); }
+
+html.tema-escuro .a11y-panel { background: var(--t-bg-2); color: var(--t-text); }
+html.tema-escuro .a11y-head { background: #07140c; border-bottom: 1px solid var(--t-border); }
+html.tema-escuro .a11y-head h2 { color: var(--t-yellow); }
+html.tema-escuro .a11y-group { border-bottom-color: var(--t-border); }
+html.tema-escuro .a11y-group h3 { color: var(--t-yellow); }
+html.tema-escuro .a11y-group p,
+html.tema-escuro .a11y-option small { color: var(--t-muted); }
+
+html.tema-escuro .a11y-btn,
+html.tema-escuro .a11y-switch,
+html.tema-escuro .a11y-option {
+  background: var(--t-surface);
+  border-color: var(--t-border);
+  color: var(--t-text);
+}
+
+html.tema-escuro .a11y-btn:hover,
+html.tema-escuro .a11y-switch:hover,
+html.tema-escuro .a11y-option:hover { border-color: var(--t-yellow); background: var(--t-surface-2); }
+
+html.tema-escuro .a11y-switch .knob { background: #4b6a55; }
+html.tema-escuro .a11y-switch[aria-pressed="true"] { background: rgba(245, 197, 66, .12); border-color: var(--t-yellow); }
+html.tema-escuro .a11y-switch[aria-pressed="true"] .knob { background: var(--t-yellow); }
+html.tema-escuro .a11y-switch[aria-pressed="true"] .knob::after { background: var(--t-on-yellow); }
+html.tema-escuro .a11y-switch .state { color: var(--t-yellow); }
+
+html.tema-escuro .a11y-option .dot { border-color: #7d9a85; }
+html.tema-escuro .a11y-option[aria-checked="true"] { background: rgba(245, 197, 66, .12); border-color: var(--t-yellow); }
+html.tema-escuro .a11y-option[aria-checked="true"] .dot {
+  border-color: var(--t-yellow);
+  background: radial-gradient(var(--t-yellow) 45%, transparent 50%);
+}
+
+html.tema-escuro .a11y-reset { background: var(--t-yellow); border-color: var(--t-yellow); color: var(--t-on-yellow); }
+html.tema-escuro .a11y-reset:hover { background: var(--t-yellow-hover); border-color: var(--t-yellow-hover); }
+
+/* O alto contraste continua mandando: preto com amarelo (regras com !important em acessibilidade.css) */

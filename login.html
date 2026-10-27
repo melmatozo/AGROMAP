@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#234b32">
+  <title>Entrar | AgroMap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:"DM Sans",sans-serif;background:#fbf9f2;color:#263b2d;min-height:100vh}
+    a{text-decoration:none}
+    .back{position:absolute;top:24px;left:28px;z-index:5;color:#234b32;font-weight:700;font-size:0.875rem}
+    .layout{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr}
+    .visual{position:relative;min-height:100vh;background:url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85") center/cover no-repeat;display:flex;flex-direction:column;justify-content:space-between;padding:45px 8%;color:white;isolation:isolate}
+    .visual:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(19,48,29,.86),rgba(25,58,34,.48)),linear-gradient(0deg,rgba(15,40,24,.55),transparent 60%)}
+    .brand{font-family:"Manrope",sans-serif;font-size:1.75rem;font-weight:800;color:white}
+    .brand span{color:#c9dfa9}
+    .visual-copy{max-width:580px;padding:60px 0}
+    .kicker{font-size:0.75rem;letter-spacing:2px;font-weight:700;color:#d6e6c1}
+    .visual h1{font-family:"Manrope",sans-serif;font-size:clamp(2.375rem,4.4vw,3.875rem);line-height:1.12;margin:22px 0;letter-spacing:-1.8px}
+    .visual h1 span{color:#c9dfa9}
+    .visual-copy p{font-size:1.0625rem;line-height:1.8;max-width:480px;color:#f1f4eb}
+    .visual-foot{font-size:0.6875rem;letter-spacing:2px;color:#e1ead7}
+    .panel{display:flex;align-items:center;justify-content:center;padding:100px 9% 55px}
+    .form-wrap{width:100%;max-width:440px}
+    .mobile-brand{display:none;color:#234b32;font-family:"Manrope",sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:35px}
+    .form-kicker{font-size:0.6875rem;letter-spacing:1.8px;font-weight:800;color:#668553}
+    h2{font-family:"Manrope",sans-serif;font-size:clamp(2rem,3vw,2.6875rem);line-height:1.2;margin:13px 0}
+    .intro{font-size:0.9375rem;line-height:1.8;color:#687367;margin-bottom:30px}
+    label{display:block;font-size:0.875rem;font-weight:700;margin:17px 0 8px}
+    input{width:100%;min-height:52px;padding:13px 15px;border:1px solid #dce3d7;border-radius:8px;background:white;font:inherit;font-size:0.9375rem;outline:none}
+    input:focus{border-color:#397348;box-shadow:0 0 0 3px rgba(57,115,72,.12)}
+    button{width:100%;min-height:54px;margin-top:25px;border:0;border-radius:8px;background:#234b32;color:white;font:inherit;font-weight:700;font-size:1rem;cursor:pointer}
+    button:hover{background:#397348}
+    #mensagem{margin-top:14px;font-size:0.875rem;line-height:1.6}
+    #mensagem.ok{color:#2e7d32}
+    #mensagem.erro{color:#c62828}
+    .switch{margin-top:25px;text-align:center;color:#697568;font-size:0.875rem;line-height:1.8}
+    .switch a{color:#397348;font-weight:800}
+    .secure{margin-top:30px;padding:14px;border-radius:8px;background:#edf2e7;color:#52654e;font-size:0.75rem;line-height:1.7}
+    @media(max-width:800px){
+      .layout{grid-template-columns:1fr}
+      .visual{min-height:300px;padding:30px 7%}
+      .visual-copy{padding:55px 0 25px}
+      .visual h1{font-size:2.375rem}
+      .visual-copy p{font-size:0.9375rem}
+      .visual-foot{font-size:0.5625rem}
+      .panel{padding:45px 7% 55px}
+      .back{top:18px;left:18px;color:white}
+      .brand{font-size:1.4375rem}
+      .form-wrap{max-width:500px}
+      .mobile-brand{display:block}
+      .intro{margin-bottom:20px}
+    }
+  </style>
+  <link rel="stylesheet" href="acessibilidade.css">
+  <link rel="stylesheet" href="tema-escuro.css">
+  <script src="tema.js"></script>
+  <script src="acessibilidade.js"></script>
+</head>
+<body>
+  <a class="back" href="index.html">← Voltar ao início</a>
+  <main class="layout">
+    <section class="visual">
+      <a class="brand" href="index.html">Agro<span>Map</span></a>
+      <div class="visual-copy">
+        <span class="kicker">TECNOLOGIA A FAVOR DO CAMPO</span>
+        <h1>O campo evolui.<br>Suas decisões também <span>podem evoluir.</span></h1>
+        <p>Acesse o AgroMap e organize suas informações para acompanhar e planejar melhor a atividade rural.</p>
+      </div>
+      <p class="visual-foot">DADOS QUE CULTIVAM O FUTURO</p>
+    </section>
+
+    <section class="panel">
+      <div class="form-wrap">
+        <div class="mobile-brand">AgroMap</div>
+        <span class="form-kicker">BEM-VINDO DE VOLTA</span>
+        <h2>Entre na sua conta</h2>
+        <p class="intro">Informe seus dados de acesso para continuar no AgroMap.</p>
+
+        <form id="loginForm">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="Digite seu e-mail" required>
+
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" autocomplete="current-password" placeholder="Digite sua senha" required>
+
+          <button type="submit">Entrar na minha conta →</button>
+          <div id="mensagem" role="status" aria-live="polite"></div>
+        </form>
+
+        <p class="switch">Ainda não possui uma conta?<br><a href="cadastro.html">Criar minha conta</a></p>
+        <p class="secure">🔒 Proteja sua senha e não compartilhe seus dados de acesso.</p>
+      </div>
+    </section>
+  </main>
+  <script src="login.js"></script>
+</body>
+</html>
